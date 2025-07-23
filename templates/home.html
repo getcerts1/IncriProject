@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage</title>
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        
+        <div class="subheader-1"></div>
+        <h1>Welcome to the Homepage!</h1>
+        <h2>Check out the user count!</h2>
+
+        <div class="subheader-2">
+    <button class="button-78" role="button" onclick="location.href='{{ url_for('count') }}'">Count</button>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

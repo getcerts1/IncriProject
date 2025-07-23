@@ -1,0 +1,12 @@
+.div-1 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: aliceblue;
+
+}
+
+.progress {
+  width: 400vi;
+  height: 150vi;
+}

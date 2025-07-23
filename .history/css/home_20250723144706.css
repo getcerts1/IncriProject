@@ -1,0 +1,12 @@
+.div-1 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;   
+}
+
+.progress {
+
+  width: 200px;
+  height: 100px;
+}
