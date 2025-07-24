@@ -1,16 +1,24 @@
 from flask import Flask, render_template
+import redis
+import os
 
 app = Flask(__name__)
+redis_host = os.getenv("REDIS_HOST")
+r = redis.Redis(host=redis_host, port=6379, decode_responses=True, db=0)
+
+
 
 @app.route("/")
 def home_page():
+    r.incr("count")
     return render_template("home.html")
 
 
 @app.route("/count")
 def count_page():
-    return render_template("count.html")
+    count = r.get('count') or 0
+    return render_template("count.html",count=int(count))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

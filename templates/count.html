@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>User Count</title>
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Total Visitors</h1>
+            <h2 class="count-display">{{ count }}</h2>
+            <div class="subheader-2">
+                <a href="{{ url_for('home_page') }}" class="button-78">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

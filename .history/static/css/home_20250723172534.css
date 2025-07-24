@@ -1,49 +1,33 @@
-/* General reset and layout */
+/* CSS */
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #ff69b4, #ffa07a);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: magenta;
 }
-
-
-.container {
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Header content */
 .header {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  border: 5px groove orange;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-self: center;
+  display: grid;
+  border: groove orange 12px;
+
 }
 
-.header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+h1 {
+  align-items: center;
+  justify-content: center;
+  padding-left: 55px;
 }
 
-.header h2 {
-  font-weight: normal;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+h2 {
+  align-items: center;
+  justify-content: center;
+  padding-left: 55px;
 }
 
 .subheader-2 {
-  margin-top: 20px;
+  padding-left: 155px;
 }
-
-/* Use the .button-78 styling you already have */
 
 
 
