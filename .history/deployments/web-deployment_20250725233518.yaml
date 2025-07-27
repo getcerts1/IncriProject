@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: incriproject
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: incriproject
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: incriproject
+        tier: backend
+    
+    spec:
+      containers:
+        - name: web-container
+          image: incriprojectacr.azurecr.io/incriproject:latest
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+          ports:
+            - containerPort: 5000
+          envFrom:
+          - configMapRef:
+             name: redis-config
+          
+          resources:
+            requests:
+              cpu: 50m
+              memory: "128Mi"
+            limits:
+              cpu: 200m
+              memory: "256Mi"
+
+      tolerations:
+      - key: "app"
+        operator: "Equal"
+        value: "incriproject"
+        effect: "NoSchedule"
+      

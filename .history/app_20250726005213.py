@@ -5,14 +5,13 @@ import os
 
 app = Flask(__name__)
 redis_host = os.getenv("REDIS_HOST", "localhost")
-redis_port = int(os.getenv("REDIS_PORT", "6379"))
+redis_port = int(os.getenv("REDIS_PORT"))
 r = redis.Redis(host=redis_host, port=redis_port, decode_responses=True, db=0)
 
 
-@app.get("/health")
+@app.route("/health")
 def health_check():
-    return {"status": "healthy"}, 200
-
+    return jsonify({"status", "healthy"}), 200
 
 @app.route("/")
 def home_page():

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  namespace: incriproject
+
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: incriproject
+      tier: db
+  template:
+    metadata:
+      labels:
+        app: incriproject
+        tier: db
+    
+    spec:
+      containers:
+      - name: redis
+        image: redis:7
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - name: redis-storage
+          mountPath: /data
+    
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+    volumes:
+    - name: redis-storage
+      persistentVolumeClaim:
+        claimName: redis-pvc

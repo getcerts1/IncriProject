@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: incriproject
+spec:
+  type: ClusterIP
+  selector:
+    app: incriproject
+    tier: db
+  ports:
+    - port: 6379
+      targetPort: 6379
